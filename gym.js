@@ -104,3 +104,26 @@ var swiper = new Swiper(".home-slider", {
     },
   },
   });
+// حدد العناصر
+let menuBtn = document.querySelector('#menu-btn');
+let navbar = document.querySelector('.navbar');
+
+// إضافة حدث النقر
+menuBtn.onclick = () => {
+    menuBtn.classList.toggle('fa-times');
+    navbar.classList.toggle('active');
+}
+
+// إغلاق القائمة عند التمرير
+window.onscroll = () => {
+    menuBtn.classList.remove('fa-times');
+    navbar.classList.remove('active');
+}
+
+// إغلاق القائمة عند النقر على أي رابط
+document.querySelectorAll('.navbar a').forEach(link => {
+    link.addEventListener('click', () => {
+        menuBtn.classList.remove('fa-times');
+        navbar.classList.remove('active');
+    });
+});
