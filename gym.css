@@ -550,10 +550,31 @@ section{
 }
 
 @media (max-width:768px){
+     html{
+        font-size: 30%;
+    }
+    .header{
+        padding: .5rem;
+    }
+    .header .active{
+        padding: .5rem;
+    }
+    section{
+        padding: .5rem;
+    }
+}
     #menu-btn{
         display: inline-block;
     }
-   
+   .header .navbar{
+       position:unset;
+        top:20px;
+        right: 0;
+        left: 0;
+        background: rgb(0, 0, 0, .9);
+        border-top: .1rem solid #eee;
+        clip-path: polygon(0 0,100% 0 ,100% 0, 0,0);
+    }
     .header .navbar .active{
         clip-path: polygon(0 0, 100% 0 , 100% 100%, 0 100%);
     }
