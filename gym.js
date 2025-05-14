@@ -1,129 +1,145 @@
+// تفعيل الأنميشن عند التمرير
+let sections = document.querySelectorAll('section');
+window.onscroll = () => {
+    sections.forEach(sec => {
+        let top = window.scrollY;
+        let offset = sec.offsetTop - 150;
+        let height = sec.offsetHeight;
+        if (top >= offset && top < offset + height){
+            sec.classList.add('show-animate');
+        } else {
+            sec.classList.remove('show-animate');
+        }
+    });
+
+    menu.classList.remove('fa-times');
+    navbar.classList.remove('active');
+
+    if (window.scrollY > 0){
+        document.querySelector('.header').classList.add('active');
+    } else {
+        document.querySelector('.header').classList.remove('active');
+    }
+}
+
+window.onload = () => {
+    if (window.scrollY > 0){
+        document.querySelector('.header').classList.add('active');
+    } else {
+        document.querySelector('.header').classList.remove('active');
+    }
+}
+
+// القائمة المنبثقة
 let menu = document.querySelector('#menu-btn');
 let navbar = document.querySelector('.navbar');
-menu.onclick = ()=>{
+
+menu.onclick = () => {
     menu.classList.toggle('fa-times');
     navbar.classList.toggle('active');
 }
-window.onscroll = () =>{
-    menu.classList.remove('fa-times');
-    navbar.classList.remove('active');
-    if (window.scrollY > 0){
-        document.querySelector('.header').classList.add('active');
-        
-    }else{
-        document.querySelector('.headwe').classList.remove('active');
-    }
-    
-}
-window.onload = () =>{
-    if (window.scrollY > 0){
-        document.querySelector('.header').classList.add('active');
-        
-    }else{
-        document.querySelector('.headwe').classList.remove('active');
-    }
-}
 
+document.querySelectorAll('.navbar a').forEach(link => {
+    link.addEventListener('click', () => {
+        menu.classList.remove('fa-times');
+        navbar.classList.remove('active');
+    });
+});
 
-//for home section
+// Home Slider
 var swiper = new Swiper(".home-slider", {
     spaceBetween: 20,
     effect: "fade",
-   grabcursor: true,
-   loop: true,
-   centeredslides: true,
-   autoplay: {
-    delay: 9500,
-    disableOnInteraction: false,
-  },
-  });
+    grabCursor: true,
+    loop: true,
+    centeredSlides: true,
+    autoplay: {
+        delay: 9500,
+        disableOnInteraction: false,
+    },
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+});
 
-  //for feature section
-  var swiper = new Swiper(".feature-slider", {
+// Feature Slider
+var swiper = new Swiper(".feature-slider", {
     spaceBetween: 20,
-    grabcursor: true,
-   loop: true,
-   centeredslides: true,
-   autoplay: {
-    delay: 9500,
-    disableOnInteraction: false,
-  },
-  breakpoints: {
-    0: {
-        slidesperview: 1,
+    grabCursor: true,
+    loop: true,
+    centeredSlides: true,
+    autoplay: {
+        delay: 9500,
+        disableOnInteraction: false,
     },
-    768: {
-        slidesperview: 2,
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
     },
-    991: {
-        slidesperview: 3,
+    breakpoints: {
+        0: {
+            slidesPerView: 1,
+        },
+        768: {
+            slidesPerView: 2,
+        },
+        991: {
+            slidesPerView: 3,
+        },
     },
-  },
-  });
-  //for trainers section
-  var swiper = new Swiper(".trainer-solider", {
+});
+
+// Trainer Slider
+var swiper = new Swiper(".trainer-solider", {
     spaceBetween: 20,
-    grabcursor: true,
-   loop: true,
-   centeredslides: true,
-   autoplay: {
-    delay: 9500,
-    disableOnInteraction: false,
-  },
-  breakpoints: {
-    0: {
-        slidesperview: 1,
+    grabCursor: true,
+    loop: true,
+    centeredSlides: true,
+    autoplay: {
+        delay: 9500,
+        disableOnInteraction: false,
     },
-    768: {
-        slidesperview: 2,
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
     },
-    991: {
-        slidesperview: 3,
+    breakpoints: {
+        0: {
+            slidesPerView: 1,
+        },
+        768: {
+            slidesPerView: 2,
+        },
+        991: {
+            slidesPerView: 3,
+        },
     },
-  },
-  }); 
-  //for blogs
-  var swiper = new Swiper(".blogs-slider", {
+});
+
+// Blogs Slider
+var swiper = new Swiper(".blogs-slider", {
     spaceBetween: 20,
-    grabcursor: true,
-   loop: true,
-   centeredslides: true,
-   autoplay: {
-    delay: 8500,
-    disableOnInteraction: false,
-  },
-  breakpoints: {
-    0: {
-        slidesperview: 1,
+    grabCursor: true,
+    loop: true,
+    centeredSlides: true,
+    autoplay: {
+        delay: 8500,
+        disableOnInteraction: false,
     },
-    768: {
-        slidesperview: 2,
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
     },
-    991: {
-        slidesperview: 3,
+    breakpoints: {
+        0: {
+            slidesPerView: 1,
+        },
+        768: {
+            slidesPerView: 2,
+        },
+        991: {
+            slidesPerView: 3,
+        },
     },
-  },
-  });
-// حدد العناصر
-let menuBtn = document.querySelector('#menu-btn');
-let navbar = document.querySelector('.navbar');
-
-// إضافة حدث النقر
-menuBtn.onclick = () => {
-    menuBtn.classList.toggle('fa-times');
-    navbar.classList.toggle('active');
-}
-
-// إغلاق القائمة عند التمرير
-window.onscroll = () => {
-    menuBtn.classList.remove('fa-times');
-    navbar.classList.remove('active');
-}
-
-// إغلاق القائمة عند النقر على أي رابط
-document.querySelectorAll('.navbar a').forEach(link => {
-    link.addEventListener('click', () => {
-        menuBtn.classList.remove('fa-times');
-        navbar.classList.remove('active');
-    });
 });
